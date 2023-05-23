@@ -9,6 +9,9 @@ use Yii\TableBuilder\Column\AbstractColumn;
 use Yii\Widget\AbstractWidget;
 use Yii\Widget\Attribute;
 
+/**
+ * Represents a table widget used for building HTML tables.
+ */
 final class Table extends AbstractWidget
 {
     use Attribute\Custom\HasAttributes;
@@ -28,6 +31,11 @@ final class Table extends AbstractWidget
     {
     }
 
+    /**
+     * Returns a new instance specifying when the table footer can be shown.
+     *
+     * @param bool $value Whether the table footer can be shown.
+     */
     public function canBeShowFooter(bool $value): self
     {
         $new = clone $this;
@@ -36,6 +44,11 @@ final class Table extends AbstractWidget
         return $new;
     }
 
+    /**
+     * Returns a new instance specifying the empty table text.
+     *
+     * @param string $value The empty table text.
+     */
     public function emptyText(string $value): self
     {
         $new = clone $this;
@@ -44,22 +57,37 @@ final class Table extends AbstractWidget
         return $new;
     }
 
-    public function headerAttributes(array $value): self
+    /**
+     * Returns a new instance specifying the header `HTML` attributes.
+     *
+     * @param array $values Attribute values indexed by attribute names.
+     */
+    public function headerAttributes(array $values): self
     {
         $new = clone $this;
-        $new->headerAttributes = $value;
+        $new->headerAttributes = $values;
 
         return $new;
     }
 
-    public function rowAttributes(array $value): self
+    /**
+     * Returns a new instance specifying the row `HTML` attributes.
+     *
+     * @param array $values Attribute values indexed by attribute names.
+     */
+    public function rowAttributes(array $values): self
     {
         $new = clone $this;
-        $new->rowAttributes = $value;
+        $new->rowAttributes = $values;
 
         return $new;
     }
 
+    /**
+     * Returns a new instance specifying the toolbar for the table.
+     *
+     * @param string $value The toolbar for the table.
+     */
     public function toolbar(string $value): self
     {
         $new = clone $this;
@@ -81,6 +109,9 @@ final class Table extends AbstractWidget
         );
     }
 
+    /**
+     * @return array The data for the table.
+     */
     private function getData(): array
     {
         $data = [];
@@ -96,6 +127,9 @@ final class Table extends AbstractWidget
         return $data;
     }
 
+    /**
+     * Render items for the table.
+     */
     private function renderItems(): string
     {
         $columns = $this->configurator->getColumns();
@@ -111,6 +145,8 @@ final class Table extends AbstractWidget
     }
 
     /**
+     * Render a table body with the given columns.
+     *
      * @psalm-param AbstractColumn[] $columns
      */
     private function renderTableBody(array $columns): string
@@ -154,6 +190,8 @@ final class Table extends AbstractWidget
     }
 
     /**
+     * Render a table footer with the given columns.
+     *
      * @psalm-param AbstractColumn[] $columns
      */
     private function renderTableFooter(array $columns): string
@@ -182,6 +220,8 @@ final class Table extends AbstractWidget
     }
 
     /**
+     * Render a table header with the given columns.
+     *
      * @psalm-param AbstractColumn[] $columns
      */
     private function renderTableHeader(array $columns): string
@@ -203,6 +243,8 @@ final class Table extends AbstractWidget
     }
 
     /**
+     * Render a table row with the given columns.
+     *
      * @psalm-param AbstractColumn[] $columns
      */
     private function renderTableRow(array $columns, array|object $data, int $index): string

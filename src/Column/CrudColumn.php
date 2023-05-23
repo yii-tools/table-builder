@@ -10,6 +10,9 @@ use Yii\TableBuilder\Column\Enum\DataAttribute;
 
 use function array_key_exists;
 
+/**
+ * Implementation of the CRUD column for the table builder.
+ */
 final class CrudColumn extends AbstractColumn
 {
     /** @psalm-var string[] */
@@ -21,11 +24,16 @@ final class CrudColumn extends AbstractColumn
     /** @psalm-var string[][] */
     private array $actionsAttributes = [];
     private array $buttons = [];
-    private array $contentAttributes = [];
     private string $primaryKey = 'id';
     private string $urlPath = '';
 
-    /** @psalm-param string[] $value */
+    /**
+     * Returns a new instance specifying the actions of the CRUD column.
+     *
+     * @param array $value The actions of the CRUD column.
+     *
+     * @psalm-param string[] $value
+     */
     public function actions(array $value): self
     {
         $new = clone $this;
@@ -34,7 +42,13 @@ final class CrudColumn extends AbstractColumn
         return $new;
     }
 
-    /** @psalm-param string[][] $values */
+    /**
+     * Returns a new instance specifying the crud columns `HTML` attributes.
+     *
+     * @param array $values Attribute values indexed by attribute names.
+     *
+     * @psalm-param string[][] $values
+     */
     public function actionsAttributes(array $values): self
     {
         $new = clone $this;
@@ -43,6 +57,12 @@ final class CrudColumn extends AbstractColumn
         return $new;
     }
 
+    /**
+     * Returns a new instance by add the class attribute for the specified action.
+     *
+     * @param string $action The action name.
+     * @param string $value The class attribute value.
+     */
     public function addActionClass(string $action, string $value): self
     {
         $new = clone $this;
@@ -51,6 +71,12 @@ final class CrudColumn extends AbstractColumn
         return $new;
     }
 
+    /**
+     * Returns a new instance by add custom button column for the specified action.
+     *
+     * @param string $name The name of the button column.
+     * @param ButtonColumn $buttonColumn The button column.
+     */
     public function addButtonColumn(string $name, ButtonColumn $buttonColumn): self
     {
         $new = clone $this;
@@ -59,6 +85,13 @@ final class CrudColumn extends AbstractColumn
         return $new;
     }
 
+    /**
+     * Returns a new instance by add the data attribute for the specified action.
+     *
+     * @param string $action The action name.
+     * @param DataAttribute $dataAttribute The data attribute.
+     * @param string $value The data attribute value.
+     */
     public function addDataAttribute(string $action, DataAttribute $dataAttribute, string $value): self
     {
         $new = clone $this;
@@ -67,6 +100,11 @@ final class CrudColumn extends AbstractColumn
         return $new;
     }
 
+    /**
+     * Returns a new instance by add the primary key attribute for actions of the CRUD column.
+     *
+     * @param string $action The primary key attribute.
+     */
     public function primaryKey(string $value): self
     {
         $new = clone $this;
@@ -75,6 +113,11 @@ final class CrudColumn extends AbstractColumn
         return $new;
     }
 
+    /**
+     * Returns a new instance specifying the url path of the CRUD column.
+     *
+     * @param string $value The url path of the CRUD column.
+     */
     public function urlPath(string $value): self
     {
         $new = clone $this;
@@ -83,10 +126,13 @@ final class CrudColumn extends AbstractColumn
         return $new;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function renderDataCell(array|object $data, int|string $key): string
     {
         /** @psalm-var ButtonColumn[] $buttons */
-        $buttons = $this->loadDefaultButtons();
+        $buttons = $this->generateButtons();
 
         if ($data === []) {
             return '';
@@ -105,17 +151,18 @@ final class CrudColumn extends AbstractColumn
         return $content ? Tag::create('td', $content) : '';
     }
 
-    public static function create(): static
-    {
-        return new static();
-    }
-
+    /**
+     * @return array The actions attributes.
+     */
     private function getActionsAttributes(string $action): array
     {
         return $this->actionsAttributes[$action] ?? [];
     }
 
-    private function loadDefaultButtons(): array
+    /**
+     * @return ButtonColumn[] The generated buttons for the CRUD column.
+     */
+    private function generateButtons(): array
     {
         $buttons = $this->buttons;
 

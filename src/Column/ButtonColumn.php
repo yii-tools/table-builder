@@ -17,6 +17,9 @@ use function is_bool;
 use function is_callable;
 use function is_string;
 
+/**
+ * Implementation of the button column for the table builder.
+ */
 final class ButtonColumn extends AbstractColumn
 {
     use Attribute\Custom\HasData;
@@ -60,10 +63,15 @@ final class ButtonColumn extends AbstractColumn
         return $new;
     }
 
-    public function contentAttributes(array $value): self
+    /**
+     * Returns a new instance specifying the content `HTML` attributes.
+     *
+     * @param array $values Attribute values indexed by attribute names.
+     */
+    public function contentAttributes(array $values): self
     {
         $new = clone $this;
-        $new->contentAttributes = $value;
+        $new->contentAttributes = $values;
 
         return $new;
     }
@@ -83,6 +91,11 @@ final class ButtonColumn extends AbstractColumn
         return $new;
     }
 
+    /**
+     * Returns a new instance specifying the data attributes `HTML` attributes of the button column.
+     *
+     * @param array $values Attribute values indexed by attribute names.
+     */
     public function dataAttributes(array $values): self
     {
         $new = clone $this;
@@ -109,6 +122,9 @@ final class ButtonColumn extends AbstractColumn
     }
 
 
+    /**
+     * {@inheritdoc}
+     */
     public function renderDataCell(array|object $data, int|string $key, bool $container = true): string
     {
         return match ($container) {
@@ -136,6 +152,12 @@ final class ButtonColumn extends AbstractColumn
         return $new;
     }
 
+    /**
+     * @param array|object $data The data associated with the row.
+     * @param int|string $key The key associated with the row.
+     *
+     * @return string The content of the data cell.
+     */
     private function getDataCellContent(array|object $data, int|string $key): string
     {
         $contentAttributes = $this->contentAttributes;
@@ -186,11 +208,23 @@ final class ButtonColumn extends AbstractColumn
         };
     }
 
+    /**
+     * @param string $content The content of the button.
+     * @param array $contentAttributes The content `HTML` attributes.
+     *
+     * @return string The rendered button.
+     */
     private function renderButton(string $content, array $contentAttributes): string
     {
         return Tag::create('button', $content, $contentAttributes);
     }
 
+    /**
+     * @param string $content The content of the button.
+     * @param array $contentAttributes The content `HTML` attributes.
+     *
+     * @return string The rendered button link.
+     */
     private function renderButtonLink(string $content, array $contentAttributes): string
     {
         unset($contentAttributes['type']);

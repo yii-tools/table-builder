@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Yii\TableBuilder\Column\Enum;
 
+/**
+ * Enumeration of the data attributes.
+ */
 enum DataAttribute: string
 {
     case ACTION = 'data-action';

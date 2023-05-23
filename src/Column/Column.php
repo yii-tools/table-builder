@@ -11,10 +11,18 @@ use function array_key_exists;
 use function call_user_func;
 use function is_array;
 
+/**
+ * Implementation of the column for the table builder.
+ */
 final class Column extends AbstractColumn
 {
     private mixed $value = null;
 
+    /**
+     * Returns a new instance specifying the data label.
+     *
+     * @param string $value The data label.
+     */
     public function dataLabel(string $value): self
     {
         $new = clone $this;
@@ -23,6 +31,9 @@ final class Column extends AbstractColumn
         return $new;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function renderDataCell(array|object $data, int|string $key): string
     {
         if ($data === []) {
@@ -49,6 +60,11 @@ final class Column extends AbstractColumn
         return Tag::create('td', $this->getDataCellValue($data, $key), $attributes);
     }
 
+    /**
+     * Returns a new instance specifying the value of the column.
+     *
+     * @param mixed $value The value of the column.
+     */
     public function value(mixed $value): self
     {
         $new = clone $this;
@@ -57,6 +73,12 @@ final class Column extends AbstractColumn
         return $new;
     }
 
+    /**
+     * @param array|object $data The data associated with the row.
+     * @param int|string $key The key associated with the row.
+     *
+     * @return string The data cell value.
+     */
     private function getDataCellValue(array|object $data, int|string $key): string
     {
         if ($this->value instanceof Closure) {

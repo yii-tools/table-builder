@@ -34,6 +34,12 @@ final class TableConfiguration implements TableConfigurationInterface
     ) {
     }
 
+    /**
+     * Returns a new instance by adding a new column to the table.
+     *
+     * @param string $name The column name.
+     * @param AbstractColumn $column The column instance.
+     */
     public function addColumn(string $name, AbstractColumn $column): self
     {
         $new = clone $this;
@@ -43,6 +49,11 @@ final class TableConfiguration implements TableConfigurationInterface
     }
 
     /**
+     * Returns a new instance by adding a new column label to the table.
+     *
+     * @param string $name The column name.
+     * @param string $value The column label.
+     *
      * @psalm-param string[] $values
      */
     public function addColumnLabel(string $name, string $value): self
@@ -53,6 +64,12 @@ final class TableConfiguration implements TableConfigurationInterface
         return $new;
     }
 
+    /**
+     * Returns a new instance by adding a new column value to the table.
+     *
+     * @param string $name The column name.
+     * @param mixed $value The column value.
+     */
     public function addColumnValue(string $name, mixed $value): self
     {
         $new = clone $this;
@@ -61,6 +78,11 @@ final class TableConfiguration implements TableConfigurationInterface
         return $new;
     }
 
+    /**
+     * Returns a new instance specifying the `HTML` attributes.
+     *
+     * @param array $values Attribute values indexed by attribute names.
+     */
     public function columnsAttributes(array $values): self
     {
         $new = clone $this;
@@ -69,6 +91,11 @@ final class TableConfiguration implements TableConfigurationInterface
         return $new;
     }
 
+    /**
+     * Returns a new instance specifying the `CSS` `HTML` class attribute of the columns.
+     *
+     * @param string $value The `CSS` `HTML` class attribute of the columns.
+     */
     public function columnsClass(string $value): self
     {
         $new = clone $this;
@@ -77,6 +104,11 @@ final class TableConfiguration implements TableConfigurationInterface
         return $new;
     }
 
+    /**
+     * Returns a new instance specifying the `CSS` `HTML` class attribute of the columns labels.
+     *
+     * @param string $value The `CSS` `HTML` class attribute of the columns label.
+     */
     public function columnsLabelClass(string $value): self
     {
         $new = clone $this;
@@ -85,6 +117,11 @@ final class TableConfiguration implements TableConfigurationInterface
         return $new;
     }
 
+    /**
+     * Returns a new instance specifying the columns excluded from the table.
+     *
+     * @param string ...$values The columns to exclude.
+     */
     public function exceptColumns(string ...$values): self
     {
         $new = clone $this;
@@ -94,6 +131,8 @@ final class TableConfiguration implements TableConfigurationInterface
     }
 
     /**
+     * @return array The columns of the table.
+     *
      * @psalm-return AbstractColumn[]
      */
     public function getColumns(): array
@@ -106,16 +145,27 @@ final class TableConfiguration implements TableConfigurationInterface
         return $this->iteratorDataProvider->getIterator();
     }
 
+    /**
+     * @return int The current page number.
+     */
     public function getPageSize(): int
     {
         return $this->pageSize;
     }
 
+    /**
+     * @return string The pagination widget.
+     */
     public function getPagination(): string
     {
         return $this->pagination;
     }
 
+    /**
+     * Returns a new instance specifying the widget pagination.
+     *
+     * @param string $value The widget pagination rendered.
+     */
     public function pagination(string $value): self
     {
         $new = clone $this;
@@ -124,22 +174,35 @@ final class TableConfiguration implements TableConfigurationInterface
         return $new;
     }
 
-    public function queryParams(array $value): self
+    /**
+     * Returns a new instance specifying the query parameters for the table.
+     *
+     * @param array $values The query parameters for the table.
+     */
+    public function queryParams(array $values): self
     {
         $new = clone $this;
-        $new->queryParams = $value;
+        $new->queryParams = $values;
 
         return $new;
     }
 
-    public function sortParams(array $value): self
+    /**
+     * Returns a new instance specifying the sort parameters for the table.
+     *
+     * @param array $values The sort parameters for the table.
+     */
+    public function sortParams(array $values): self
     {
         $new = clone $this;
-        $new->sortParams = $value;
+        $new->sortParams = $values;
 
         return $new;
     }
 
+    /**
+     * Returns a new instance specifying the the URL path for the table.
+     */
     public function urlPath(string $value): self
     {
         $new = clone $this;
@@ -149,8 +212,7 @@ final class TableConfiguration implements TableConfigurationInterface
     }
 
     /**
-     * This function tries to guess the columns to show from the given data if {@see columns} aren't explicitly
-     * specified.
+     * @return array The columns generated from the data iterator provider.
      *
      * @psalm-return AbstractColumn[]
      */
@@ -208,6 +270,9 @@ final class TableConfiguration implements TableConfigurationInterface
         return $columns;
     }
 
+    /**
+     * @return string The link header for the column sort.
+     */
     private function generateColumnSortLink(string $column, array $sortParams = []): string
     {
         return TableSorter::widget()
