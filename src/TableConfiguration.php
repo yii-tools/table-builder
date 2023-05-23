@@ -9,17 +9,16 @@ use Traversable;
 use Yii\Html\Helper\CssClass;
 use Yii\TableBuilder\Column\AbstractColumn;
 use Yii\TableBuilder\Column\Column;
-use Yii\Widget\Attribute;
 
 final class TableConfiguration implements TableConfigurationInterface
 {
-    use Attribute\Custom\HasAttributes;
-
     protected array $attributes = [];
     protected array $queryParams = [];
     protected string $urlPath = '';
     /** @psalm-var AbstractColumn[] */
     private array $columns = [];
+    /** @psalm-var string[] */
+    private array $columnsAttributes = [];
     /** @psalm-var string[] */
     private array $columnsLabel = [];
     private array $columnsLabelAttributes = [];
@@ -63,10 +62,18 @@ final class TableConfiguration implements TableConfigurationInterface
         return $new;
     }
 
-    public function class(string $value): self
+    public function columnsAttributes(array $values): self
     {
         $new = clone $this;
-        CssClass::add($new->attributes, $value);
+        $new->columnsAttributes = $values;
+
+        return $new;
+    }
+
+    public function columnsClass(string $value): self
+    {
+        $new = clone $this;
+        CssClass::add($new->columnsAttributes, $value);
 
         return $new;
     }
@@ -151,6 +158,7 @@ final class TableConfiguration implements TableConfigurationInterface
     private function generateColumns(): array
     {
         $columns = [];
+        $columnsAttributes = $this->columnsAttributes;
         $columnsLabelAttributes = $this->columnsLabelAttributes;
 
         if ($this->columnsLabelClass !== '') {
@@ -170,7 +178,7 @@ final class TableConfiguration implements TableConfigurationInterface
                     $label = $this->columnsLabel[$name] ?? $name;
 
                     $column = Column::create()
-                        ->attributes($this->attributes)
+                        ->attributes($columnsAttributes)
                         ->label($label)
                         ->labelAttributes($columnsLabelAttributes)
                         ->name($name);

@@ -95,21 +95,14 @@ final class CrudColumn extends AbstractColumn
         $content = '';
 
         foreach ($buttons as $name => $button) {
-            if (!isset($this->actions[$name])) {
-                break;
+            if (isset($this->actions[$name])) {
+                $primaryKeyData = (string) (is_array($data) ? $data[$this->primaryKey] : $data->{$this->primaryKey});
+                $button = $button->href($this->urlPath . '/' . $this->actions[$name] . '/' . $primaryKeyData);
+                $content .= $button->renderDataCell($data, $key, false);
             }
-
-            if (is_array($data) && array_key_exists($this->primaryKey, $data)) {
-                $primaryKeyData = (string) $data[$this->primaryKey];
-            } else {
-                $primaryKeyData = (string) $data->{$this->primaryKey};
-            }
-
-            $button = $button->href($this->urlPath . '/' . $this->actions[$name] . '/' . $primaryKeyData);
-            $content .= $button->renderDataCell($data, $key, false);
         }
 
-        return $content !== '' ? Tag::create('td', $content) : $content;
+        return $content ? Tag::create('td', $content) : '';
     }
 
     public static function create(): static

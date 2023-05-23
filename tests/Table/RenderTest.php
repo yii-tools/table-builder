@@ -65,9 +65,9 @@ final class RenderTest extends TestCase
             </tbody>
             <thead>
             <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>blocked_at</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Blocked_at</th>
             </tr>
             </thead>
             <tfoot>
@@ -135,9 +135,9 @@ final class RenderTest extends TestCase
             </tbody>
             <thead class="test-class">
             <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>blocked_at</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Blocked_at</th>
             </tr>
             </thead>
             </table>
@@ -180,9 +180,9 @@ final class RenderTest extends TestCase
             </tbody>
             <thead>
             <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>blocked_at</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Blocked_at</th>
             </tr>
             </thead>
             </table>
@@ -225,9 +225,9 @@ final class RenderTest extends TestCase
             </tbody>
             <thead>
             <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>blocked_at</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Blocked_at</th>
             </tr>
             </thead>
             </table>
@@ -271,9 +271,9 @@ final class RenderTest extends TestCase
             </tbody>
             <thead>
             <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>blocked_at</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Blocked_at</th>
             </tr>
             </thead>
             </table>

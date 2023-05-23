@@ -103,7 +103,7 @@ final class ColumnTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <th>test label</th>
+            <th>Test label</th>
             HTML,
             Column::create()->label('test label')->renderHeaderCell(),
         );
@@ -113,7 +113,7 @@ final class ColumnTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <th id="test-id">test label</th>
+            <th id="test-id">Test label</th>
             HTML,
             Column::create()->label('test label')->labelAttributes(['id' => 'test-id'])->renderHeaderCell(),
         );
@@ -123,9 +123,19 @@ final class ColumnTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <th class="test-class">test label</th>
+            <th class="test-class">Test label</th>
             HTML,
             Column::create()->label('test label')->labelClass('test-class')->renderHeaderCell(),
+        );
+    }
+
+    public function testLabelWithEmpty(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <th>Id</th>
+            HTML,
+            Column::create()->label('')->name('id')->renderHeaderCell(),
         );
     }
 

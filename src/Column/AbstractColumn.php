@@ -134,13 +134,13 @@ abstract class AbstractColumn
         return new static();
     }
 
-    protected function renderHeaderCellContent(): string
-    {
-        return $this->label !== '' ? $this->label : ucfirst($this->name);
-    }
-
     private function renderFooterCellContent(): string
     {
         return $this->footer !== '' ? $this->footer : $this->emptyCell;
+    }
+
+    private function renderHeaderCellContent(): string
+    {
+        return ucfirst($this->label) ?: ucfirst($this->name);
     }
 }

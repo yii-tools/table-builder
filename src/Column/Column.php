@@ -43,7 +43,7 @@ final class Column extends AbstractColumn
         }
 
         if (!array_key_exists('data-label', $attributes) && $this->label !== '') {
-            $attributes['data-label'] = mb_strtolower($this->name, 'UTF-8');
+            $attributes['data-label'] = $this->name;
         }
 
         return Tag::create('td', $this->getDataCellValue($data, $key), $attributes);
@@ -67,11 +67,8 @@ final class Column extends AbstractColumn
             return (string) $this->value;
         }
 
-        $value = match ($this->value === '') {
-            true => $this->emptyCell,
-            default => is_array($data) ? (string) $data[$this->name] : (string) $data->{$this->name},
-        };
+        $value = is_array($data) ? (string) $data[$this->name] : (string) $data->{$this->name};
 
-        return $value === '' ? $this->emptyCell : $value;
+        return $value ?: $this->emptyCell;
     }
 }

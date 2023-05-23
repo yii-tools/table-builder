@@ -55,8 +55,8 @@ final class TableConfigurationTest extends TestCase
             </tbody>
             <thead>
             <tr>
-            <th>id</th>
-            <th>name</th>
+            <th>Id</th>
+            <th>Name</th>
             <th>Block/Unblock</th>
             </tr>
             </thead>
@@ -101,9 +101,52 @@ final class TableConfigurationTest extends TestCase
             </tbody>
             <thead>
             <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>blocked_at</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Blocked_at</th>
+            </tr>
+            </thead>
+            </table>
+            HTML,
+            Table::widget([$tableConfiguration])->render(),
+        );
+    }
+
+    public function testColumnsClass(): void
+    {
+        $tableConfiguration = new TableConfiguration($this->getArrayIteratorDataProvider(), 0, 0);
+        $tableConfiguration = $tableConfiguration->columnsClass('test-class');
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <table>
+            <tbody>
+            <tr>
+            <td class="test-class" data-label="id">1</td>
+            <td class="test-class" data-label="name">John Doe</td>
+            <td class="test-class" data-label="blocked_at">empty cell</td>
+            </tr>
+            <tr>
+            <td class="test-class" data-label="id">2</td>
+            <td class="test-class" data-label="name">Jane Doe</td>
+            <td class="test-class" data-label="blocked_at">2021-01-01 00:00:00</td>
+            </tr>
+            <tr>
+            <td class="test-class" data-label="id">3</td>
+            <td class="test-class" data-label="name">John Smith</td>
+            <td class="test-class" data-label="blocked_at">empty cell</td>
+            </tr>
+            <tr>
+            <td class="test-class" data-label="id">4</td>
+            <td class="test-class" data-label="name">empty cell</td>
+            <td class="test-class" data-label="blocked_at">empty cell</td>
+            </tr>
+            </tbody>
+            <thead>
+            <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Blocked_at</th>
             </tr>
             </thead>
             </table>
@@ -144,9 +187,9 @@ final class TableConfigurationTest extends TestCase
             </tbody>
             <thead>
             <tr>
-            <th class="test-class">id</th>
-            <th class="test-class">name</th>
-            <th class="test-class">blocked_at</th>
+            <th class="test-class">Id</th>
+            <th class="test-class">Name</th>
+            <th class="test-class">Blocked_at</th>
             </tr>
             </thead>
             </table>
@@ -162,8 +205,8 @@ final class TableConfigurationTest extends TestCase
         $this->assertNotSame($tableConfiguration, $tableConfiguration->addColumn('', Column::create()));
         $this->assertNotSame($tableConfiguration, $tableConfiguration->addColumnLabel('', ''));
         $this->assertNotSame($tableConfiguration, $tableConfiguration->addColumnValue('', ''));
-        $this->assertNotSame($tableConfiguration, $tableConfiguration->attributes([]));
-        $this->assertNotSame($tableConfiguration, $tableConfiguration->class(''));
+        $this->assertNotSame($tableConfiguration, $tableConfiguration->columnsAttributes([]));
+        $this->assertNotSame($tableConfiguration, $tableConfiguration->columnsClass(''));
         $this->assertNotSame($tableConfiguration, $tableConfiguration->columnsLabelClass(''));
         $this->assertNotSame($tableConfiguration, $tableConfiguration->exceptColumns(''));
         $this->assertNotSame($tableConfiguration, $tableConfiguration->pagination(''));
@@ -217,8 +260,8 @@ final class TableConfigurationTest extends TestCase
             <thead>
             <tr>
             <th><a class="text-blue-500 hover:underline asc" href="?sort=-id&amp;page=0&amp;page-size=0" data-sort="-id">Id</a></th>
-            <th>name</th>
-            <th>blocked_at</th>
+            <th>Name</th>
+            <th>Blocked_at</th>
             </tr>
             </thead>
             </table>
@@ -272,8 +315,8 @@ final class TableConfigurationTest extends TestCase
             <thead>
             <tr>
             <th><a class="text-blue-500 hover:underline desc" href="?sort=id&amp;page=0&amp;page-size=0" data-sort="id">Id</a></th>
-            <th>name</th>
-            <th>blocked_at</th>
+            <th>Name</th>
+            <th>Blocked_at</th>
             </tr>
             </thead>
             </table>

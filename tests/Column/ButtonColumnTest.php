@@ -149,14 +149,32 @@ final class ButtonColumnTest extends TestCase
         );
     }
 
+    public function testContentWithEncode(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <td><a role="button">Block &amp; Unblock</a></td>
+            HTML,
+            ButtonColumn::create()->content('Block & Unblock')->renderDataCell($this->row, 'blocked_at'),
+        );
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <td><a role="button">Block & Unblock</a></td>
+            HTML,
+            ButtonColumn::create()->content('Block & Unblock', false)->renderDataCell($this->row, 'blocked_at'),
+        );
+    }
+
     public function testDataAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <td><a role="button" data-action="block">Block</a></td>
+            <td><a id="block-id" role="button" data-action="block">Block</a></td>
             HTML,
             ButtonColumn::create()
                 ->content('Block')
+                ->contentAttributes(['id' => 'block-id'])
                 ->dataAttributes(['data-action' => 'block'])
                 ->renderDataCell($this->row, 'blocked_at'),
         );
