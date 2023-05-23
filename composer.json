@@ -1,7 +1,7 @@
 {
     "name": "yii-tools/table-builder",
     "type": "library",
-    "description": "Table builder for Yii Framework v.3.0.",
+    "description": "Table builder for YiiFramework v. 3.0.",
     "keywords": [
         "yii-tools",
         "table",
