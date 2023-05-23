@@ -17,7 +17,6 @@ final class TableConfiguration implements TableConfigurationInterface
     protected string $urlPath = '';
     /** @psalm-var AbstractColumn[] */
     private array $columns = [];
-    /** @psalm-var string[] */
     private array $columnsAttributes = [];
     /** @psalm-var string[] */
     private array $columnsLabel = [];
