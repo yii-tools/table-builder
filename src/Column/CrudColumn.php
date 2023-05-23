@@ -159,7 +159,7 @@ final class CrudColumn extends AbstractColumn
     }
 
     /**
-     * @return ButtonColumn[] The generated buttons for the CRUD column.
+     * @return array The generated buttons for the CRUD column.
      */
     private function generateButtons(): array
     {
