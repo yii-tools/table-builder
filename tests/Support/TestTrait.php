@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Yii\TableBuilder\Tests\Support;
 
 use Yii\DataProvider\ArrayIteratorDataProvider;
-use Yii\TableBuilder\Table;
 use Yii\TableBuilder\TableConfiguration;
 use Yiisoft\Cache\ArrayCache;
 use Yiisoft\Db\Cache\SchemaCache;

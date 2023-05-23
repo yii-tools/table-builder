@@ -71,7 +71,7 @@ final class ButtonColumnTest extends TestCase
                     [
                         'id' => static function (array $data, int|string $key) {
                             return $data[$key] === null ? 'block-id' : 'unblock-id';
-                        }
+                        },
                     ],
                 )
                 ->renderDataCell($this->row, 'blocked_at'),
