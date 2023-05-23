@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Yii\TableBuilder\Column;
 
-use Yii\Html\Helper\CssClass;
 use Yii\Html\Tag;
 use Yii\TableBuilder\Column\Enum\DataAttribute;
 
@@ -16,7 +15,7 @@ final class CrudColumn extends AbstractColumn
     private array $actions = [
         'delete' => 'delete',
         'update' => 'update',
-        'view' => 'view'
+        'view' => 'view',
     ];
     /** @psalm-var string[][] */
     private array $actionsAttributes = [];
@@ -107,7 +106,7 @@ final class CrudColumn extends AbstractColumn
 
     public static function create(): static
     {
-        return new static();
+        return new self();
     }
 
     private function getActionsAttributes(string $action): array

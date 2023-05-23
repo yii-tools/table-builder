@@ -45,7 +45,7 @@ final class ButtonColumn extends AbstractColumn
     /**
      * Returns a new instance specifying the content of the button column.
      *
-     * @param string|Closure|Stringable $value The content of the button column.
+     * @param Closure|string|Stringable $value The content of the button column.
      * @param bool $encode Whether to encode the content value.
      */
     public function content(string|Closure|Stringable $value, bool $encode = true): self
@@ -71,7 +71,7 @@ final class ButtonColumn extends AbstractColumn
     /**
      * Returns a new instance specifying the `CSS` `HTML` class attribute of the button column.
      *
-     * @param string|Closure $value The `CSS` attribute of the button column.
+     * @param Closure|string $value The `CSS` attribute of the button column.
      *
      * @link https://html.spec.whatwg.org/#classes
      */
@@ -96,7 +96,7 @@ final class ButtonColumn extends AbstractColumn
      *
      * Links aren't restricted to HTTP-based URLs they can use any URL scheme supported by browsers.
      *
-     * @param string|Closure $value The URL that the hyperlink points to.
+     * @param Closure|string $value The URL that the hyperlink points to.
      *
      * @link https://html.spec.whatwg.org/multipage/links.html#ping
      */
@@ -107,7 +107,6 @@ final class ButtonColumn extends AbstractColumn
 
         return $new;
     }
-
 
     public function renderDataCell(array|object $data, int|string $key, bool $container = true): string
     {
