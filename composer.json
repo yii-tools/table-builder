@@ -1,12 +1,11 @@
 {
     "name": "yii-tools/table-builder",
     "type": "library",
-    "description": "Table builder for YiiFramework v. 3.0.",
+    "description": "Table builder for PHP.",
     "keywords": [
         "yii-tools",
         "table",
-        "builder",
-        "yii3"
+        "builder"
     ],
     "license": "mit",
     "minimum-stability": "dev",
