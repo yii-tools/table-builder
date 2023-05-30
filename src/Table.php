@@ -27,8 +27,9 @@ final class Table extends AbstractWidget
     private array $rowFooterAttributes = [];
     private string $toolbar = '';
 
-    public function __construct(private readonly TableConfigurationInterface $configurator)
+    public function __construct(private readonly TableConfigurationInterface $configurator, array $definitions = [])
     {
+        parent::__construct($definitions);
     }
 
     /**
