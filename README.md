@@ -3,7 +3,7 @@
         <img src="https://avatars.githubusercontent.com/u/121752654?s=200&v=4" height="100px">
         <img src="https://github.com/yii-tools/table-builder/blob/main/docs/images/table-builder.png?raw=true" height="100px">
     </a>
-    <h1 align="center">Table Builder for YiiFramework v. 3.0.</h1>
+    <h1 align="center">Table Builder for PHP.</h1>
     <br>
 </p>
 
