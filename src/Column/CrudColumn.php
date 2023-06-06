@@ -8,6 +8,7 @@ use Yii\Html\Tag;
 use Yii\TableBuilder\Column\Enum\DataAttribute;
 
 use function array_key_exists;
+use function in_array;
 
 /**
  * Implementation of the CRUD column for the table builder.
@@ -16,9 +17,9 @@ final class CrudColumn extends AbstractColumn
 {
     /** @psalm-var string[] */
     private array $actions = [
-        'delete' => 'delete',
-        'update' => 'update',
-        'view' => 'view',
+        'delete',
+        'update',
+        'view',
     ];
     /** @psalm-var string[][] */
     private array $actionsAttributes = [];
@@ -140,9 +141,9 @@ final class CrudColumn extends AbstractColumn
         $content = '';
 
         foreach ($buttons as $name => $button) {
-            if (isset($this->actions[$name])) {
+            if (in_array($name, $this->actions, true)) {
                 $primaryKeyData = (string) (is_array($data) ? $data[$this->primaryKey] : $data->{$this->primaryKey});
-                $button = $button->href($this->urlPath . '/' . $this->actions[$name] . '/' . $primaryKeyData);
+                $button = $button->href($this->urlPath . '/' . $name . '/' . $primaryKeyData);
                 $content .= $button->renderDataCell($data, $key, false);
             }
         }

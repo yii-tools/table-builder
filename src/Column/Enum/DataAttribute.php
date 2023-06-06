@@ -13,7 +13,8 @@ enum DataAttribute: string
     case CANCEL_TEXT = 'data-cancel-text';
     case CONFIRM_TEXT = 'data-confirm-text';
     case ICON = 'data-icon';
-    case METHOD = 'data-method';
     case MESSAGE = 'data-message';
+    case METHOD = 'data-method';
+    case MODAL_TOGGLE = 'data-modal-toggle';
     case TITLE = 'data-title';
 }

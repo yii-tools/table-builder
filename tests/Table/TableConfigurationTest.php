@@ -62,7 +62,7 @@ final class TableConfigurationTest extends TestCase
             </thead>
             </table>
             HTML,
-            Table::widget([$tableConfiguration])->render(),
+            Table::widget($tableConfiguration)->render(),
         );
     }
 
@@ -108,7 +108,7 @@ final class TableConfigurationTest extends TestCase
             </thead>
             </table>
             HTML,
-            Table::widget([$tableConfiguration])->render(),
+            Table::widget($tableConfiguration)->render(),
         );
     }
 
@@ -151,7 +151,7 @@ final class TableConfigurationTest extends TestCase
             </thead>
             </table>
             HTML,
-            Table::widget([$tableConfiguration])->render(),
+            Table::widget($tableConfiguration)->render(),
         );
     }
 
@@ -194,7 +194,7 @@ final class TableConfigurationTest extends TestCase
             </thead>
             </table>
             HTML,
-            Table::widget([$tableConfiguration])->render(),
+            Table::widget($tableConfiguration)->render(),
         );
     }
 
@@ -266,7 +266,7 @@ final class TableConfigurationTest extends TestCase
             </thead>
             </table>
             HTML,
-            Table::widget([$tableConfiguration])->render(),
+            Table::widget($tableConfiguration)->render(),
         );
     }
 
@@ -321,7 +321,7 @@ final class TableConfigurationTest extends TestCase
             </thead>
             </table>
             HTML,
-            Table::widget([$tableConfiguration])->render(),
+            Table::widget($tableConfiguration)->render(),
         );
     }
 }

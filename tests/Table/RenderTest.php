@@ -27,7 +27,7 @@ final class RenderTest extends TestCase
             </thead>
             </table>
             HTML,
-            Table::widget([$this->getTableConfiguration(true)])->emptyText('empty table test')->render(),
+            Table::widget($this->getTableConfiguration(true))->emptyText('empty table test')->render(),
         );
     }
 
@@ -79,7 +79,7 @@ final class RenderTest extends TestCase
             </tfoot>
             </table>
             HTML,
-            Table::widget([$this->getTableConfiguration()])->canBeShowFooter(true)->emptyText('empty table test')->render(),
+            Table::widget($this->getTableConfiguration())->canBeShowFooter(true)->emptyText('empty table test')->render(),
         );
     }
 
@@ -97,7 +97,7 @@ final class RenderTest extends TestCase
             </thead>
             </table>
             HTML,
-            Table::widget([$this->getTableConfiguration(true)])->canBeShowFooter(true)->render(),
+            Table::widget($this->getTableConfiguration(true))->canBeShowFooter(true)->render(),
         );
     }
 
@@ -142,7 +142,7 @@ final class RenderTest extends TestCase
             </thead>
             </table>
             HTML,
-            Table::widget([$this->getTableConfiguration()])->headerAttributes(['class' => 'test-class'])->render(),
+            Table::widget($this->getTableConfiguration())->headerAttributes(['class' => 'test-class'])->render(),
         );
     }
 
@@ -187,7 +187,7 @@ final class RenderTest extends TestCase
             </thead>
             </table>
             HTML,
-            Table::widget([$this->getTableConfiguration()])->render()
+            Table::widget($this->getTableConfiguration())->render()
         );
     }
 
@@ -232,7 +232,7 @@ final class RenderTest extends TestCase
             </thead>
             </table>
             HTML,
-            Table::widget([$this->getTableConfiguration()])->rowAttributes(['class' => 'test-class'])->render(),
+            Table::widget($this->getTableConfiguration())->rowAttributes(['class' => 'test-class'])->render(),
         );
     }
 
@@ -278,7 +278,7 @@ final class RenderTest extends TestCase
             </thead>
             </table>
             HTML,
-            Table::widget([$this->getTableConfiguration()])->toolBar('toolbar')->render(),
+            Table::widget($this->getTableConfiguration())->toolBar('toolbar')->render(),
         );
     }
 }

@@ -30,7 +30,7 @@ final class CrudColumnTest extends TestCase
     public function testActionsWithWrongName(): void
     {
         $this->assertEmpty(
-            CrudColumn::create()->actions(['wrong' => 'delete'])->renderDataCell($this->row, 'blocked_at'),
+            CrudColumn::create()->actions(['wrong'])->renderDataCell($this->row, 'blocked_at'),
         );
     }
 
@@ -68,8 +68,8 @@ final class CrudColumnTest extends TestCase
             <td><a href="/confirmation/1" role="button">✅</a></td>
             HTML,
             CrudColumn::create()
-                ->actions(['confirm' => 'confirmation'])
-                ->addButtonColumn('confirm', ButtonColumn::create()->content('✅'))
+                ->actions(['confirmation'])
+                ->addButtonColumn('confirmation', ButtonColumn::create()->content('✅'))
                 ->renderDataCell($this->row, 'blocked_at'),
         );
     }
