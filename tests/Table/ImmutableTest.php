@@ -15,7 +15,7 @@ final class ImmutableTest extends TestCase
 
     public function testTableImmutability(): void
     {
-        $table = Table::widget([$this->getTableConfiguration(true)]);
+        $table = Table::widget($this->getTableConfiguration(true));
 
         $this->assertNotSame($table, $table->canBeShowFooter(true));
         $this->assertNotSame($table, $table->emptyText(''));

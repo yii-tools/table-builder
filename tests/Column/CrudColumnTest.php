@@ -30,7 +30,7 @@ final class CrudColumnTest extends TestCase
     public function testActionsWithWrongName(): void
     {
         $this->assertEmpty(
-            CrudColumn::create()->actions(['wrong' => 'delete'])->renderDataCell($this->row, 'blocked_at'),
+            CrudColumn::create()->actions(['wrong'])->renderDataCell($this->row, 'blocked_at'),
         );
     }
 
@@ -38,7 +38,7 @@ final class CrudColumnTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <td><a href="/delete/1" role="button" data-foo="bar"><span>🗑</span></a><a id="test-id-update" href="/update/1" role="button"><span>✎</span></a><a href="/view/1" role="button"><span>🔎</span></a></td>
+            <td><a href="/delete/1" role="button" data-foo="bar"><span>🗑</span></a><a id="test-id-update" href="/update/1" role="button"><span>✎</span></a></td>
             HTML,
             CrudColumn::create()
                 ->actionsAttributes(
@@ -55,7 +55,7 @@ final class CrudColumnTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <td><a class="test-class" href="/delete/1" role="button"><span>🗑</span></a><a href="/update/1" role="button"><span>✎</span></a><a href="/view/1" role="button"><span>🔎</span></a></td>
+            <td><a class="test-class" href="/delete/1" role="button"><span>🗑</span></a><a href="/update/1" role="button"><span>✎</span></a></td>
             HTML,
             CrudColumn::create()->addActionClass('delete', 'test-class')->renderDataCell($this->row, 'blocked_at'),
         );
@@ -68,8 +68,8 @@ final class CrudColumnTest extends TestCase
             <td><a href="/confirmation/1" role="button">✅</a></td>
             HTML,
             CrudColumn::create()
-                ->actions(['confirm' => 'confirmation'])
-                ->addButtonColumn('confirm', ButtonColumn::create()->content('✅'))
+                ->actions(['confirmation'])
+                ->addButtonColumn('confirmation', ButtonColumn::create()->content('✅'))
                 ->renderDataCell($this->row, 'blocked_at'),
         );
     }
@@ -78,7 +78,7 @@ final class CrudColumnTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <td><a href="/delete/1" role="button" data-action="deleteHandler"><span>🗑</span></a><a href="/update/1" role="button"><span>✎</span></a><a href="/view/1" role="button"><span>🔎</span></a></td>
+            <td><a href="/delete/1" role="button" data-action="deleteHandler"><span>🗑</span></a><a href="/update/1" role="button"><span>✎</span></a></td>
             HTML,
             CrudColumn::create()
                 ->addDataAttribute('delete', DataAttribute::ACTION, 'deleteHandler')
@@ -103,7 +103,7 @@ final class CrudColumnTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <td><a href="/delete/017f22e2-79b0-7cc3-98c4-dc0c0c07398f" role="button"><span>🗑</span></a><a href="/update/017f22e2-79b0-7cc3-98c4-dc0c0c07398f" role="button"><span>✎</span></a><a href="/view/017f22e2-79b0-7cc3-98c4-dc0c0c07398f" role="button"><span>🔎</span></a></td>
+            <td><a href="/delete/017f22e2-79b0-7cc3-98c4-dc0c0c07398f" role="button"><span>🗑</span></a><a href="/update/017f22e2-79b0-7cc3-98c4-dc0c0c07398f" role="button"><span>✎</span></a></td>
             HTML,
             CrudColumn::create()->primaryKey('uuid')->renderDataCell($this->rowCustomId, 'blocked_at'),
         );
@@ -118,7 +118,7 @@ final class CrudColumnTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <td><a href="/user/admin/delete/1" role="button"><span>🗑</span></a><a href="/user/admin/update/1" role="button"><span>✎</span></a><a href="/user/admin/view/1" role="button"><span>🔎</span></a></td>
+            <td><a href="/user/admin/delete/1" role="button"><span>🗑</span></a><a href="/user/admin/update/1" role="button"><span>✎</span></a></td>
             HTML,
             CrudColumn::create()->urlPath('/user/admin')->renderDataCell($this->row, 'blocked_at'),
         );
