@@ -127,6 +127,8 @@ final class CrudColumn extends AbstractColumn
      */
     public function renderDataCell(array|object $data, int|string $key): string
     {
+        $attributes = $this->attributes;
+
         /** @psalm-var ButtonColumn[] $buttons */
         $buttons = $this->generateButtons();
 
@@ -144,7 +146,7 @@ final class CrudColumn extends AbstractColumn
             }
         }
 
-        return $content ? Tag::create('td', $content) : '';
+        return $content ? Tag::create('td', $content, $attributes) : '';
     }
 
     /**
