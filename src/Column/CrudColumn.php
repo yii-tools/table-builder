@@ -16,11 +16,7 @@ use function in_array;
 final class CrudColumn extends AbstractColumn
 {
     /** @psalm-var string[] */
-    private array $actions = [
-        'delete',
-        'update',
-        'view',
-    ];
+    private array $actions = ['delete', 'update'];
     /** @psalm-var string[][] */
     private array $actionsAttributes = [];
     private array $buttons = [];
