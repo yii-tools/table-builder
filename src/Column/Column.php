@@ -53,8 +53,8 @@ final class Column extends AbstractColumn
             }
         }
 
-        if (!array_key_exists('data-label', $attributes) && $this->label !== '') {
-            $attributes['data-label'] = $this->name;
+        if (!array_key_exists("data-$key", $attributes) && $this->label !== '') {
+            $attributes["data-$key"] = $this->name;
         }
 
         return Tag::create('td', $this->getDataCellValue($data, $key), $attributes);
