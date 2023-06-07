@@ -184,7 +184,7 @@ final class CrudColumn extends AbstractColumn
         ];
 
         foreach ($this->actions as $action) {
-            if (array_key_exists($action, $defaultButtons)) {
+            if (array_key_exists($action, $defaultButtons) && !array_key_exists($action, $buttons)) {
                 $buttons[$action] = $defaultButtons[$action];
             }
         }
