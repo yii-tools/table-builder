@@ -19,7 +19,7 @@ final class ColumnTest extends TestCase
             <<<HTML
             <td class="text-center">John Doe</td>
             HTML,
-            Column::create()->attributes(['class' => fn () => 'text-center'])->name('name')->renderDataCell($this->row, 1, 2),
+            Column::create()->attributes(['class' => fn () => 'text-center'])->name('name')->renderDataCell($this->row, 1),
         );
     }
 
@@ -29,7 +29,7 @@ final class ColumnTest extends TestCase
             <<<HTML
             <td class="test-class">John Doe</td>
             HTML,
-            Column::create()->class('test-class')->name('name')->renderDataCell($this->row, 1, 2),
+            Column::create()->class('test-class')->name('name')->renderDataCell($this->row, 1),
         );
     }
 
@@ -39,7 +39,17 @@ final class ColumnTest extends TestCase
             <<<HTML
             <td data-label="Block">John Doe</td>
             HTML,
-            Column::create()->dataLabel('Block')->name('name')->renderDataCell($this->row, 1, 2),
+            Column::create()->dataLabel('Block')->name('name')->renderDataCell($this->row, 1),
+        );
+    }
+
+    public function testDefinitions(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <td class="test-class">John Doe</td>
+            HTML,
+            Column::create(['class()' => ['test-class'], 'name()' => ['name']])->renderDataCell($this->row, 1),
         );
     }
 
@@ -49,7 +59,7 @@ final class ColumnTest extends TestCase
             <<<HTML
             <td>test empty cell</td>
             HTML,
-            Column::create()->emptyCell('test empty cell')->name('name')->renderDataCell($this->rowEmptyCell, 1, 2),
+            Column::create()->emptyCell('test empty cell')->name('name')->renderDataCell($this->rowEmptyCell, 1),
         );
     }
 
@@ -141,7 +151,7 @@ final class ColumnTest extends TestCase
 
     public function testRenderDataCellWithEmptyData(): void
     {
-        $this->assertEmpty(Column::create()->renderDataCell([], 1, 2));
+        $this->assertEmpty(Column::create()->renderDataCell([], 1));
     }
 
     public function testValue(): void
@@ -150,7 +160,7 @@ final class ColumnTest extends TestCase
             <<<HTML
             <td>Sam doe</td>
             HTML,
-            Column::create()->value('Sam doe')->name('name')->renderDataCell($this->row, 1, 2),
+            Column::create()->value('Sam doe')->name('name')->renderDataCell($this->row, 1),
         );
     }
 
@@ -163,7 +173,7 @@ final class ColumnTest extends TestCase
             Column::create()
                 ->name('blocket_at')
                 ->value(static fn (array $data) => $data['blocked_at'] === null ? 'UnBlock' : 'Blocked')
-                ->renderDataCell($this->row, 1, 2),
+                ->renderDataCell($this->row, 1),
         );
     }
 }
