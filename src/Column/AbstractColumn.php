@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Yii\TableBuilder\Column;
 
+use ReflectionClass;
 use Yii\Html\Helper\CssClass;
 use Yii\Html\Tag;
 use Yii\Widget\Attribute;
@@ -26,7 +27,7 @@ abstract class AbstractColumn
     private array $footerAttributes = [];
     private bool $visible = true;
 
-    final public function __construct()
+    final public function __construct(public readonly array $definitions = [])
     {
     }
 
@@ -190,11 +191,24 @@ abstract class AbstractColumn
     }
 
     /**
+     * Creates a new instance of the column.
+     *
+     * @param mixed ...$args The arguments to pass to the column constructor.
+     *
      * @return static Returns a new instance of the column.
      */
-    public static function create(): static
+    final public static function create(mixed ...$args): static
     {
-        return new static();
+        $reflection = new ReflectionClass(static::class);
+
+        /** @var static $columns */
+        $columns = $reflection->newInstanceArgs($args);
+
+        if ($columns->definitions === []) {
+            return $columns;
+        }
+
+        return ColumnFactory::factory($columns);
     }
 
     /**
