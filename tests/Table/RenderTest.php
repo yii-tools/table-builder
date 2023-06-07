@@ -38,24 +38,24 @@ final class RenderTest extends TestCase
             <table>
             <tbody>
             <tr>
-            <td data-label="id">1</td>
-            <td data-label="name">John Doe</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">1</td>
+            <td data-name="name">John Doe</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr>
-            <td data-label="id">2</td>
-            <td data-label="name">Jane Doe</td>
-            <td data-label="blocked_at">2021-01-01 00:00:00</td>
+            <td data-id="id">2</td>
+            <td data-name="name">Jane Doe</td>
+            <td data-blocked_at="blocked_at">2021-01-01 00:00:00</td>
             </tr>
             <tr>
-            <td data-label="id">3</td>
-            <td data-label="name">John Smith</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">3</td>
+            <td data-name="name">John Smith</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr>
-            <td data-label="id">4</td>
-            <td data-label="name">empty cell</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">4</td>
+            <td data-name="name">empty cell</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr>
             <td></td>
@@ -108,24 +108,24 @@ final class RenderTest extends TestCase
             <table>
             <tbody>
             <tr>
-            <td data-label="id">1</td>
-            <td data-label="name">John Doe</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">1</td>
+            <td data-name="name">John Doe</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr>
-            <td data-label="id">2</td>
-            <td data-label="name">Jane Doe</td>
-            <td data-label="blocked_at">2021-01-01 00:00:00</td>
+            <td data-id="id">2</td>
+            <td data-name="name">Jane Doe</td>
+            <td data-blocked_at="blocked_at">2021-01-01 00:00:00</td>
             </tr>
             <tr>
-            <td data-label="id">3</td>
-            <td data-label="name">John Smith</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">3</td>
+            <td data-name="name">John Smith</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr>
-            <td data-label="id">4</td>
-            <td data-label="name">empty cell</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">4</td>
+            <td data-name="name">empty cell</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr>
             <td></td>
@@ -153,24 +153,24 @@ final class RenderTest extends TestCase
             <table>
             <tbody>
             <tr>
-            <td data-label="id">1</td>
-            <td data-label="name">John Doe</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">1</td>
+            <td data-name="name">John Doe</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr>
-            <td data-label="id">2</td>
-            <td data-label="name">Jane Doe</td>
-            <td data-label="blocked_at">2021-01-01 00:00:00</td>
+            <td data-id="id">2</td>
+            <td data-name="name">Jane Doe</td>
+            <td data-blocked_at="blocked_at">2021-01-01 00:00:00</td>
             </tr>
             <tr>
-            <td data-label="id">3</td>
-            <td data-label="name">John Smith</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">3</td>
+            <td data-name="name">John Smith</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr>
-            <td data-label="id">4</td>
-            <td data-label="name">empty cell</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">4</td>
+            <td data-name="name">empty cell</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr>
             <td></td>
@@ -198,24 +198,24 @@ final class RenderTest extends TestCase
             <table>
             <tbody>
             <tr class="test-class">
-            <td data-label="id">1</td>
-            <td data-label="name">John Doe</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">1</td>
+            <td data-name="name">John Doe</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr class="test-class">
-            <td data-label="id">2</td>
-            <td data-label="name">Jane Doe</td>
-            <td data-label="blocked_at">2021-01-01 00:00:00</td>
+            <td data-id="id">2</td>
+            <td data-name="name">Jane Doe</td>
+            <td data-blocked_at="blocked_at">2021-01-01 00:00:00</td>
             </tr>
             <tr class="test-class">
-            <td data-label="id">3</td>
-            <td data-label="name">John Smith</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">3</td>
+            <td data-name="name">John Smith</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr class="test-class">
-            <td data-label="id">4</td>
-            <td data-label="name">empty cell</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">4</td>
+            <td data-name="name">empty cell</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr class="test-class">
             <td></td>
@@ -244,24 +244,24 @@ final class RenderTest extends TestCase
             toolbar
             <tbody>
             <tr>
-            <td data-label="id">1</td>
-            <td data-label="name">John Doe</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">1</td>
+            <td data-name="name">John Doe</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr>
-            <td data-label="id">2</td>
-            <td data-label="name">Jane Doe</td>
-            <td data-label="blocked_at">2021-01-01 00:00:00</td>
+            <td data-id="id">2</td>
+            <td data-name="name">Jane Doe</td>
+            <td data-blocked_at="blocked_at">2021-01-01 00:00:00</td>
             </tr>
             <tr>
-            <td data-label="id">3</td>
-            <td data-label="name">John Smith</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">3</td>
+            <td data-name="name">John Smith</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr>
-            <td data-label="id">4</td>
-            <td data-label="name">empty cell</td>
-            <td data-label="blocked_at">empty cell</td>
+            <td data-id="id">4</td>
+            <td data-name="name">empty cell</td>
+            <td data-blocked_at="blocked_at">empty cell</td>
             </tr>
             <tr>
             <td></td>
