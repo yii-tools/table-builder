@@ -113,6 +113,16 @@ final class ButtonColumn extends AbstractColumn
     }
 
     /**
+     * @return string The type attribute of the button column.
+     */
+    public function getType(): string
+    {
+        return isset($this->contentAttributes['type']) && is_string($this->contentAttributes['type'])
+            ? $this->contentAttributes['type']
+            : 'link';
+    }
+
+    /**
      * Returns a new instance specifying the URL that the hyperlink points to.
      *
      * Links aren't restricted to HTTP-based URLs they can use any URL scheme supported by browsers.

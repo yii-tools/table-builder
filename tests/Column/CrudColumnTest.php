@@ -115,6 +115,19 @@ final class CrudColumnTest extends TestCase
         $this->assertEmpty(CrudColumn::create()->renderDataCell([], 'blocked_at'));
     }
 
+    public function testTypeButton(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <td><button type="button">✅</button></td>
+            HTML,
+            CrudColumn::create()
+                ->actions(['confirmation'])
+                ->addButtonColumn('confirmation', ButtonColumn::create()->content('✅')->type('button'))
+                ->renderDataCell($this->row, 'blocked_at'),
+        );
+    }
+
     public function testUrlPath(): void
     {
         Assert::equalsWithoutLE(
