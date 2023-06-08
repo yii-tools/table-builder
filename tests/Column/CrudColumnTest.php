@@ -95,6 +95,7 @@ final class CrudColumnTest extends TestCase
         $this->assertNotSame($crudColumn, $crudColumn->addActionClass('', ''));
         $this->assertNotSame($crudColumn, $crudColumn->addButtonColumn('', ButtonColumn::create()));
         $this->assertNotSame($crudColumn, $crudColumn->addDataAttribute('', DataAttribute::ACTION, ''));
+        $this->assertNotSame($crudColumn, $crudColumn->buttons([]));
         $this->assertNotSame($crudColumn, $crudColumn->primaryKey(''));
         $this->assertNotSame($crudColumn, $crudColumn->urlPath(''));
     }

@@ -97,6 +97,20 @@ final class CrudColumn extends AbstractColumn
     }
 
     /**
+     * Return a new instance specifying the buttons of the CRUD column.
+     *
+     * @param array $values The buttons of the CRUD column. The key is the name of the button and the value is the button
+     * column.
+     */
+    public function buttons(array $values): self
+    {
+        $new = clone $this;
+        $new->buttons = $values;
+
+        return $new;
+    }
+
+    /**
      * Returns a new instance by add the primary key attribute for actions of the CRUD column.
      *
      * @param string $action The primary key attribute.
