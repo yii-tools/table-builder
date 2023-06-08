@@ -233,6 +233,13 @@ final class ButtonColumnTest extends TestCase
         );
     }
 
+    public function testGetHref(): void
+    {
+        $buttonColumn = ButtonColumn::create()->href('/users/2');
+
+        $this->assertsame('/users/2', $buttonColumn->getHref());
+    }
+
     public function testImmutable(): void
     {
         $buttonColumn = ButtonColumn::create();
