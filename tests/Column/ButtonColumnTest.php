@@ -240,6 +240,13 @@ final class ButtonColumnTest extends TestCase
         $this->assertsame('/users/2', $buttonColumn->getHref());
     }
 
+    public function getType(): void
+    {
+        $buttonColumn = ButtonColumn::create()->type('submit');
+
+        $this->assertsame('submit', $buttonColumn->getType());
+    }
+
     public function testImmutable(): void
     {
         $buttonColumn = ButtonColumn::create();

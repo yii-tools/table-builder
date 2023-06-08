@@ -155,7 +155,9 @@ final class CrudColumn extends AbstractColumn
         foreach ($buttons as $name => $button) {
             if (in_array($name, $this->actions, true)) {
                 $primaryKeyData = (string) (is_array($data) ? $data[$this->primaryKey] : $data->{$this->primaryKey});
-                $button = $button->href($this->urlPath . '/' . $name . '/' . $primaryKeyData);
+                if ($button->getType() === 'link' && $button->getHref() === '') {
+                    $button = $button->href($this->urlPath . '/' . $name . '/' . $primaryKeyData);
+                }
                 $content .= $button->renderDataCell($data, $key, false);
             }
         }
