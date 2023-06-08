@@ -105,7 +105,7 @@ final class ButtonColumn extends AbstractColumn
     }
 
     /**
-     * @return string|Closure The href attribute of the button column.
+     * @return Closure|string The href attribute of the button column.
      */
     public function getHref(): string|Closure
     {
