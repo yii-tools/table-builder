@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Yii\TableBuilder\Tests\Table;
 
+use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 use Yii\DataProvider\Sort;
-use Yii\Support\Assert;
 use Yii\TableBuilder\Column\ButtonColumn;
 use Yii\TableBuilder\Column\Column;
 use Yii\TableBuilder\Table;

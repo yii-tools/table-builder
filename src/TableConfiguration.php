@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Yii\TableBuilder;
 
 use IteratorAggregate;
+use PHPForge\Html\Helper\CssClass;
 use Traversable;
-use Yii\Html\Helper\CssClass;
 use Yii\TableBuilder\Column\AbstractColumn;
 use Yii\TableBuilder\Column\Column;
 

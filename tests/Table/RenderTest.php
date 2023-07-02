@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Yii\TableBuilder\Tests\Table;
 
+use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
-use Yii\Support\Assert;
-use Yii\TableBuilder\Tests\Support\TestTrait;
 use Yii\TableBuilder\Table;
+use Yii\TableBuilder\Tests\Support\TestTrait;
 
 final class RenderTest extends TestCase
 {

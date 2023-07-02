@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Yii\TableBuilder\Tests\Column;
 
+use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
-use Yii\Support\Assert;
 use Yii\TableBuilder\Column\Column;
 
 final class ColumnTest extends TestCase

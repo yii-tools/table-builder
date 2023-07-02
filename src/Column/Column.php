@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Yii\TableBuilder\Column;
 
 use Closure;
-use Yii\Html\Tag;
+use PHPForge\Html\Tag;
 
 use function array_key_exists;
 use function call_user_func;
