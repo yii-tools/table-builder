@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Yii\TableBuilder\Column;
 
 use Closure;
+use PHPForge\Html\Helper\CssClass;
+use PHPForge\Html\Helper\Encode;
+use PHPForge\Html\Tag;
+use PHPForge\Widget\Attribute;
 use Stringable;
-use Yii\Html\Helper\CssClass;
-use Yii\Html\Helper\Encode;
-use Yii\Html\Tag;
 use Yii\TableBuilder\Column\Enum\DataAttribute;
-use Yii\Widget\Attribute;
 
 use function array_merge;
 use function is_bool;

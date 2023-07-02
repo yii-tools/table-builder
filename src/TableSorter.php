@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Yii\TableBuilder;
 
 use InvalidArgumentException;
-use Yii\Html\Helper\CssClass;
-use Yii\Html\Tag;
-use Yii\Widget\AbstractWidget;
+use PHPForge\Html\Helper\CssClass;
+use PHPForge\Html\Tag;
+use PHPForge\Widget\AbstractWidget;
 use Yiisoft\Strings\Inflector;
 
 use function array_merge;

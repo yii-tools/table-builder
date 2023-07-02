@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Yii\TableBuilder\Column;
 
+use PHPForge\Html\Helper\CssClass;
+use PHPForge\Html\Tag;
+use PHPForge\Widget\Attribute;
 use ReflectionClass;
-use Yii\Html\Helper\CssClass;
-use Yii\Html\Tag;
-use Yii\Widget\Attribute;
 
 use function ucfirst;
 

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Yii\TableBuilder;
 
-use Yii\Html\Tag;
+use PHPForge\Html\Tag;
+use PHPForge\Widget\AbstractWidget;
+use PHPForge\Widget\Attribute;
 use Yii\TableBuilder\Column\AbstractColumn;
-use Yii\Widget\AbstractWidget;
-use Yii\Widget\Attribute;
 
 /**
  * Represents a table widget used for building HTML tables.

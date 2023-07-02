@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Yii\TableBuilder\Column;
 
-use Yii\Html\Tag;
+use PHPForge\Html\Tag;
 use Yii\TableBuilder\Column\Enum\DataAttribute;
 
 use function array_key_exists;
